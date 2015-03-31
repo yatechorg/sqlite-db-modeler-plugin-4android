@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.yatech.sqlitedb.modeler.model/gen" editDirectory="/org.yatech.sqlitedb.modeler.model.edit/gen"
+    editorDirectory="/org.yatech.sqlitedb.modeler.model.editor/gen" modelPluginID="org.yatech.sqlitedb.modeler.model"
+    modelName="SQLiteDB" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="/org.yatech.sqlitedb.modeler.model.tests/gen" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.8" language=""
+    interfaceNamePattern="" operationReflection="true" importOrganizing="true">
+  <foreignModel>sqlitedb.ecore</foreignModel>
+  <genPackages prefix="Model" basePackage="org.yatech.sqlitedb.modeler" disposableProviderFactory="true"
+      contentTypeIdentifier="" fileExtensions="db4android" ecorePackage="sqlitedb.ecore#/">
+    <genClasses ecoreClass="sqlitedb.ecore#//DatabaseVersions">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlitedb.ecore#//DatabaseVersions/versions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sqlitedb.ecore#//DatabaseVersions/packageName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sqlitedb.ecore#//DatabaseVersions/fileName"/>
+      <genOperations ecoreOperation="sqlitedb.ecore#//DatabaseVersions/getFirstVersion"/>
+      <genOperations ecoreOperation="sqlitedb.ecore#//DatabaseVersions/getLastVersion"/>
+      <genOperations ecoreOperation="sqlitedb.ecore#//DatabaseVersions/createVersion"/>
+    </genClasses>
+    <genClasses ecoreClass="sqlitedb.ecore#//DatabaseVersion">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlitedb.ecore#//DatabaseVersion/database"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sqlitedb.ecore#//DatabaseVersion/previousVersion"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sqlitedb.ecore#//DatabaseVersion/nextVersion"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sqlitedb.ecore#//DatabaseVersion/tableMapping"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sqlitedb.ecore#//DatabaseVersion/columnMapping"/>
+    </genClasses>
+    <genClasses ecoreClass="sqlitedb.ecore#//Database">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlitedb.ecore#//Database/tables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlitedb.ecore#//Database/views"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlitedb.ecore#//Database/triggers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlitedb.ecore#//Database/indexes"/>
+    </genClasses>
+    <nestedGenPackages prefix="Common" basePackage="org.yatech.sqlitedb.modeler.model"
+        disposableProviderFactory="true" fileExtensions="" ecorePackage="sqlitedb.ecore#//common">
+      <genDataTypes ecoreDataType="sqlitedb.ecore#//common/Collection">
+        <genTypeParameters ecoreTypeParameter="sqlitedb.ecore#//common/Collection/T"/>
+      </genDataTypes>
+      <genClasses image="false" ecoreClass="sqlitedb.ecore#//common/NameProvider">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sqlitedb.ecore#//common/NameProvider/name"/>
+      </genClasses>
+      <genClasses ecoreClass="sqlitedb.ecore#//common/MappingEntry">
+        <genTypeParameters ecoreTypeParameter="sqlitedb.ecore#//common/MappingEntry/T"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sqlitedb.ecore#//common/MappingEntry/previous"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sqlitedb.ecore#//common/MappingEntry/current"/>
+      </genClasses>
+      <genClasses ecoreClass="sqlitedb.ecore#//common/StringToTableMappingEntryMap">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sqlitedb.ecore#//common/StringToTableMappingEntryMap/key"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference sqlitedb.ecore#//common/StringToTableMappingEntryMap/value"/>
+      </genClasses>
+      <genClasses ecoreClass="sqlitedb.ecore#//common/StringToColumnMappingEntryMap">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sqlitedb.ecore#//common/StringToColumnMappingEntryMap/key"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference sqlitedb.ecore#//common/StringToColumnMappingEntryMap/value"/>
+      </genClasses>
+      <genClasses ecoreClass="sqlitedb.ecore#//common/TableMapping">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlitedb.ecore#//common/TableMapping/prev2entryMap"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlitedb.ecore#//common/TableMapping/curr2entryMap"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlitedb.ecore#//common/TableMapping/entries.1"/>
+        <genOperations ecoreOperation="sqlitedb.ecore#//common/TableMapping/getPrevious">
+          <genParameters ecoreParameter="sqlitedb.ecore#//common/TableMapping/getPrevious/current"/>
+        </genOperations>
+        <genOperations ecoreOperation="sqlitedb.ecore#//common/TableMapping/getAllPrevious"/>
+        <genOperations ecoreOperation="sqlitedb.ecore#//common/TableMapping/getCurrent">
+          <genParameters ecoreParameter="sqlitedb.ecore#//common/TableMapping/getCurrent/previous"/>
+        </genOperations>
+        <genOperations ecoreOperation="sqlitedb.ecore#//common/TableMapping/getAllCurrent"/>
+        <genOperations ecoreOperation="sqlitedb.ecore#//common/TableMapping/put">
+          <genParameters ecoreParameter="sqlitedb.ecore#//common/TableMapping/put/previous"/>
+          <genParameters ecoreParameter="sqlitedb.ecore#//common/TableMapping/put/current"/>
+        </genOperations>
+        <genOperations ecoreOperation="sqlitedb.ecore#//common/TableMapping/entries"/>
+      </genClasses>
+      <genClasses ecoreClass="sqlitedb.ecore#//common/ColumnMapping">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlitedb.ecore#//common/ColumnMapping/prev2entryMap"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlitedb.ecore#//common/ColumnMapping/curr2entryMap"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlitedb.ecore#//common/ColumnMapping/entries.1"/>
+        <genOperations ecoreOperation="sqlitedb.ecore#//common/ColumnMapping/getPrevious">
+          <genParameters ecoreParameter="sqlitedb.ecore#//common/ColumnMapping/getPrevious/current"/>
+        </genOperations>
+        <genOperations ecoreOperation="sqlitedb.ecore#//common/ColumnMapping/getAllPrevious"/>
+        <genOperations ecoreOperation="sqlitedb.ecore#//common/ColumnMapping/getCurrent">
+          <genParameters ecoreParameter="sqlitedb.ecore#//common/ColumnMapping/getCurrent/previous"/>
+        </genOperations>
+        <genOperations ecoreOperation="sqlitedb.ecore#//common/ColumnMapping/getAllCurrent"/>
+        <genOperations ecoreOperation="sqlitedb.ecore#//common/ColumnMapping/put">
+          <genParameters ecoreParameter="sqlitedb.ecore#//common/ColumnMapping/put/previous"/>
+          <genParameters ecoreParameter="sqlitedb.ecore#//common/ColumnMapping/put/current"/>
+        </genOperations>
+        <genOperations ecoreOperation="sqlitedb.ecore#//common/ColumnMapping/entries"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Table" basePackage="org.yatech.sqlitedb.modeler.model"
+        disposableProviderFactory="true" fileExtensions="" ecorePackage="sqlitedb.ecore#//table">
+      <genClasses ecoreClass="sqlitedb.ecore#//table/Table">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference sqlitedb.ecore#//table/Table/database"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlitedb.ecore#//table/Table/columns"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlitedb.ecore#//table/Table/constraints"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="sqlitedb.ecore#//table/TableConstraint">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sqlitedb.ecore#//table/TableConstraint/name"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference sqlitedb.ecore#//table/TableConstraint/table"/>
+      </genClasses>
+      <genClasses ecoreClass="sqlitedb.ecore#//table/PrimaryKeyTableConstraint">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlitedb.ecore#//table/PrimaryKeyTableConstraint/columns"/>
+      </genClasses>
+      <genClasses ecoreClass="sqlitedb.ecore#//table/UniqueTableConstraint">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlitedb.ecore#//table/UniqueTableConstraint/columns"/>
+      </genClasses>
+      <genClasses ecoreClass="sqlitedb.ecore#//table/CheckTableConstraint">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlitedb.ecore#//table/CheckTableConstraint/expression"/>
+      </genClasses>
+      <genClasses ecoreClass="sqlitedb.ecore#//table/ForeignKeyTableConstraint">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference sqlitedb.ecore#//table/ForeignKeyTableConstraint/columns"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference sqlitedb.ecore#//table/ForeignKeyTableConstraint/foreignTable"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference sqlitedb.ecore#//table/ForeignKeyTableConstraint/foreignColumns"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Column" basePackage="org.yatech.sqlitedb.modeler.model"
+        disposableProviderFactory="true" fileExtensions="" ecorePackage="sqlitedb.ecore#//column">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="sqlitedb.ecore#//column/DataType">
+        <genEnumLiterals ecoreEnumLiteral="sqlitedb.ecore#//column/DataType/NULL"/>
+        <genEnumLiterals ecoreEnumLiteral="sqlitedb.ecore#//column/DataType/INTEGER"/>
+        <genEnumLiterals ecoreEnumLiteral="sqlitedb.ecore#//column/DataType/REAL"/>
+        <genEnumLiterals ecoreEnumLiteral="sqlitedb.ecore#//column/DataType/TEXT"/>
+        <genEnumLiterals ecoreEnumLiteral="sqlitedb.ecore#//column/DataType/BLOB"/>
+      </genEnums>
+      <genClasses ecoreClass="sqlitedb.ecore#//column/Column">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference sqlitedb.ecore#//column/Column/table"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sqlitedb.ecore#//column/Column/type"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlitedb.ecore#//column/Column/constraints"/>
+      </genClasses>
+      <genClasses ecoreClass="sqlitedb.ecore#//column/IndexedColumn">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference sqlitedb.ecore#//column/IndexedColumn/column"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="sqlitedb.ecore#//column/ColumnConstraint">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sqlitedb.ecore#//column/ColumnConstraint/name"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference sqlitedb.ecore#//column/ColumnConstraint/column"/>
+      </genClasses>
+      <genClasses ecoreClass="sqlitedb.ecore#//column/PrimaryKeyColumnConstraint"/>
+      <genClasses ecoreClass="sqlitedb.ecore#//column/NotNullColumnConstraint"/>
+      <genClasses ecoreClass="sqlitedb.ecore#//column/UniqueColumnConstraint"/>
+      <genClasses ecoreClass="sqlitedb.ecore#//column/CheckColumnConstraint">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference sqlitedb.ecore#//column/CheckColumnConstraint/expression"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="sqlitedb.ecore#//column/DefaultValueColumnConstraint">
+        <genTypeParameters ecoreTypeParameter="sqlitedb.ecore#//column/DefaultValueColumnConstraint/T"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlitedb.ecore#//column/DefaultValueColumnConstraint/value"/>
+      </genClasses>
+      <genClasses ecoreClass="sqlitedb.ecore#//column/DefaultExpressionValueColumnConstraint"/>
+      <genClasses ecoreClass="sqlitedb.ecore#//column/DefaultStringValueColumnConstraint"/>
+      <genClasses ecoreClass="sqlitedb.ecore#//column/DefaultIntegerValueColumnConstraint"/>
+      <genClasses ecoreClass="sqlitedb.ecore#//column/DefaultRealValueColumnConstraint"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="View" basePackage="org.yatech.sqlitedb.modeler.model"
+        disposableProviderFactory="true" fileExtensions="" ecorePackage="sqlitedb.ecore#//view">
+      <genClasses ecoreClass="sqlitedb.ecore#//view/View">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference sqlitedb.ecore#//view/View/database"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Index" basePackage="org.yatech.sqlitedb.modeler.model"
+        disposableProviderFactory="true" fileExtensions="" ecorePackage="sqlitedb.ecore#//index">
+      <genClasses image="false" ecoreClass="sqlitedb.ecore#//index/Index">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference sqlitedb.ecore#//index/Index/database"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Trigger" basePackage="org.yatech.sqlitedb.modeler.model"
+        disposableProviderFactory="true" fileExtensions="" ecorePackage="sqlitedb.ecore#//trigger">
+      <genClasses ecoreClass="sqlitedb.ecore#//trigger/Trigger">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference sqlitedb.ecore#//trigger/Trigger/database"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Expression" basePackage="org.yatech.sqlitedb.modeler.model"
+        disposableProviderFactory="true" fileExtensions="" ecorePackage="sqlitedb.ecore#//expression">
+      <genClasses image="false" ecoreClass="sqlitedb.ecore#//expression/Expression"/>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

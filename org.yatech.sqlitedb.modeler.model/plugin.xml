@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated sqlitedb -->
+      <package
+            uri="http://yatech.org/sqlitedb/modeler/model"
+            class="org.yatech.sqlitedb.modeler.model.ModelPackage"
+            genModel="model/sqlitedb.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated sqlitedb -->
+      <package
+            uri="http://yatech.org/sqlitedb/modeler/model/common"
+            class="org.yatech.sqlitedb.modeler.model.common.CommonPackage"
+            genModel="model/sqlitedb.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated sqlitedb -->
+      <package
+            uri="http://yatech.org/sqlitedb/modeler/model/table"
+            class="org.yatech.sqlitedb.modeler.model.table.TablePackage"
+            genModel="model/sqlitedb.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated sqlitedb -->
+      <package
+            uri="http://yatech.org/sqlitedb/modeler/model/column"
+            class="org.yatech.sqlitedb.modeler.model.column.ColumnPackage"
+            genModel="model/sqlitedb.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated sqlitedb -->
+      <package
+            uri="http://yatech.org/sqlitedb/modeler/model/view"
+            class="org.yatech.sqlitedb.modeler.model.view.ViewPackage"
+            genModel="model/sqlitedb.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated sqlitedb -->
+      <package
+            uri="http://yatech.org/sqlitedb/modeler/model/index"
+            class="org.yatech.sqlitedb.modeler.model.index.IndexPackage"
+            genModel="model/sqlitedb.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated sqlitedb -->
+      <package
+            uri="http://yatech.org/sqlitedb/modeler/model/trigger"
+            class="org.yatech.sqlitedb.modeler.model.trigger.TriggerPackage"
+            genModel="model/sqlitedb.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated sqlitedb -->
+      <package
+            uri="http://yatech.org/sqlitedb/modeler/model/expression"
+            class="org.yatech.sqlitedb.modeler.model.expression.ExpressionPackage"
+            genModel="model/sqlitedb.genmodel"/>
+   </extension>
+
+</plugin>
