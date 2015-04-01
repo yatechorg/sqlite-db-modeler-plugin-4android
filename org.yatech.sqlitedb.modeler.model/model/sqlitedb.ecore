@@ -211,7 +211,8 @@
       <eTypeParameters name="T"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="table" nsURI="http://yatech.org/sqlitedb/modeler/model/table" nsPrefix="org.yatech.sqlitedb.modeler.model">
+  <eSubpackages name="table" nsURI="http://yatech.org/sqlitedb/modeler/model/table"
+      nsPrefix="org.yatech.sqlitedb.modeler.model">
     <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//common/NameProvider">
       <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"
           eType="#//Database" eOpposite="#//Database/tables"/>
@@ -227,11 +228,11 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PrimaryKeyTableConstraint" eSuperTypes="#//table/TableConstraint">
       <eStructuralFeatures xsi:type="ecore:EReference" name="columns" lowerBound="1"
-          eType="#//column/IndexedColumn" containment="true"/>
+          upperBound="-1" eType="#//column/IndexedColumn" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UniqueTableConstraint" eSuperTypes="#//table/TableConstraint">
       <eStructuralFeatures xsi:type="ecore:EReference" name="columns" lowerBound="1"
-          eType="#//column/IndexedColumn" containment="true"/>
+          upperBound="-1" eType="#//column/IndexedColumn" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CheckTableConstraint" eSuperTypes="#//table/TableConstraint">
       <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
@@ -308,13 +309,15 @@
       </eGenericSuperTypes>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="view" nsURI="http://yatech.org/sqlitedb/modeler/model/view" nsPrefix="org.yatech.sqlitedb.modeler.model">
+  <eSubpackages name="view" nsURI="http://yatech.org/sqlitedb/modeler/model/view"
+      nsPrefix="org.yatech.sqlitedb.modeler.model">
     <eClassifiers xsi:type="ecore:EClass" name="View" eSuperTypes="#//common/NameProvider">
       <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"
           eType="#//Database" eOpposite="#//Database/views"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="index" nsURI="http://yatech.org/sqlitedb/modeler/model/index" nsPrefix="org.yatech.sqlitedb.modeler.model">
+  <eSubpackages name="index" nsURI="http://yatech.org/sqlitedb/modeler/model/index"
+      nsPrefix="org.yatech.sqlitedb.modeler.model">
     <eClassifiers xsi:type="ecore:EClass" name="Index" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"
           eType="#//Database" eOpposite="#//Database/indexes"/>

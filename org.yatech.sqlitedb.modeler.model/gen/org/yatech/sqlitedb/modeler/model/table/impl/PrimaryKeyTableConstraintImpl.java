@@ -2,16 +2,14 @@
  */
 package org.yatech.sqlitedb.modeler.model.table.impl;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.yatech.sqlitedb.modeler.model.column.IndexedColumn;
-
 import org.yatech.sqlitedb.modeler.model.table.PrimaryKeyTableConstraint;
 import org.yatech.sqlitedb.modeler.model.table.TablePackage;
 
@@ -30,14 +28,14 @@ import org.yatech.sqlitedb.modeler.model.table.TablePackage;
  */
 public class PrimaryKeyTableConstraintImpl extends TableConstraintImpl implements PrimaryKeyTableConstraint {
 	/**
-	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' containment reference.
+	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getColumns()
 	 * @generated
 	 * @ordered
 	 */
-	protected IndexedColumn columns;
+	protected EList<IndexedColumn> columns;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -63,42 +61,11 @@ public class PrimaryKeyTableConstraintImpl extends TableConstraintImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IndexedColumn getColumns() {
+	public EList<IndexedColumn> getColumns() {
+		if (columns == null) {
+			columns = new EObjectContainmentEList<IndexedColumn>(IndexedColumn.class, this, TablePackage.PRIMARY_KEY_TABLE_CONSTRAINT__COLUMNS);
+		}
 		return columns;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetColumns(IndexedColumn newColumns, NotificationChain msgs) {
-		IndexedColumn oldColumns = columns;
-		columns = newColumns;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TablePackage.PRIMARY_KEY_TABLE_CONSTRAINT__COLUMNS, oldColumns, newColumns);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setColumns(IndexedColumn newColumns) {
-		if (newColumns != columns) {
-			NotificationChain msgs = null;
-			if (columns != null)
-				msgs = ((InternalEObject)columns).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TablePackage.PRIMARY_KEY_TABLE_CONSTRAINT__COLUMNS, null, msgs);
-			if (newColumns != null)
-				msgs = ((InternalEObject)newColumns).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TablePackage.PRIMARY_KEY_TABLE_CONSTRAINT__COLUMNS, null, msgs);
-			msgs = basicSetColumns(newColumns, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TablePackage.PRIMARY_KEY_TABLE_CONSTRAINT__COLUMNS, newColumns, newColumns));
 	}
 
 	/**
@@ -110,7 +77,7 @@ public class PrimaryKeyTableConstraintImpl extends TableConstraintImpl implement
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case TablePackage.PRIMARY_KEY_TABLE_CONSTRAINT__COLUMNS:
-				return basicSetColumns(null, msgs);
+				return ((InternalEList<?>)getColumns()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -134,11 +101,13 @@ public class PrimaryKeyTableConstraintImpl extends TableConstraintImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case TablePackage.PRIMARY_KEY_TABLE_CONSTRAINT__COLUMNS:
-				setColumns((IndexedColumn)newValue);
+				getColumns().clear();
+				getColumns().addAll((Collection<? extends IndexedColumn>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -153,7 +122,7 @@ public class PrimaryKeyTableConstraintImpl extends TableConstraintImpl implement
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case TablePackage.PRIMARY_KEY_TABLE_CONSTRAINT__COLUMNS:
-				setColumns((IndexedColumn)null);
+				getColumns().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -168,7 +137,7 @@ public class PrimaryKeyTableConstraintImpl extends TableConstraintImpl implement
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case TablePackage.PRIMARY_KEY_TABLE_CONSTRAINT__COLUMNS:
-				return columns != null;
+				return columns != null && !columns.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

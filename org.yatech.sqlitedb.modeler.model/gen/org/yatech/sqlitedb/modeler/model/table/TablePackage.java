@@ -197,7 +197,7 @@ public interface TablePackage extends EPackage {
 	int PRIMARY_KEY_TABLE_CONSTRAINT__TABLE = TABLE_CONSTRAINT__TABLE;
 
 	/**
-	 * The feature id for the '<em><b>Columns</b></em>' containment reference.
+	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -252,7 +252,7 @@ public interface TablePackage extends EPackage {
 	int UNIQUE_TABLE_CONSTRAINT__TABLE = TABLE_CONSTRAINT__TABLE;
 
 	/**
-	 * The feature id for the '<em><b>Columns</b></em>' containment reference.
+	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -493,10 +493,10 @@ public interface TablePackage extends EPackage {
 	EClass getPrimaryKeyTableConstraint();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.yatech.sqlitedb.modeler.model.table.PrimaryKeyTableConstraint#getColumns <em>Columns</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.yatech.sqlitedb.modeler.model.table.PrimaryKeyTableConstraint#getColumns <em>Columns</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Columns</em>'.
+	 * @return the meta object for the containment reference list '<em>Columns</em>'.
 	 * @see org.yatech.sqlitedb.modeler.model.table.PrimaryKeyTableConstraint#getColumns()
 	 * @see #getPrimaryKeyTableConstraint()
 	 * @generated
@@ -514,10 +514,10 @@ public interface TablePackage extends EPackage {
 	EClass getUniqueTableConstraint();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.yatech.sqlitedb.modeler.model.table.UniqueTableConstraint#getColumns <em>Columns</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.yatech.sqlitedb.modeler.model.table.UniqueTableConstraint#getColumns <em>Columns</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Columns</em>'.
+	 * @return the meta object for the containment reference list '<em>Columns</em>'.
 	 * @see org.yatech.sqlitedb.modeler.model.table.UniqueTableConstraint#getColumns()
 	 * @see #getUniqueTableConstraint()
 	 * @generated
@@ -682,7 +682,7 @@ public interface TablePackage extends EPackage {
 		EClass PRIMARY_KEY_TABLE_CONSTRAINT = eINSTANCE.getPrimaryKeyTableConstraint();
 
 		/**
-		 * The meta object literal for the '<em><b>Columns</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Columns</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -700,7 +700,7 @@ public interface TablePackage extends EPackage {
 		EClass UNIQUE_TABLE_CONSTRAINT = eINSTANCE.getUniqueTableConstraint();
 
 		/**
-		 * The meta object literal for the '<em><b>Columns</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Columns</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

@@ -435,10 +435,10 @@ public class TablePackageImpl extends EPackageImpl implements TablePackage {
 		initEReference(getTableConstraint_Table(), this.getTable(), this.getTable_Constraints(), "table", null, 1, 1, TableConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(primaryKeyTableConstraintEClass, PrimaryKeyTableConstraint.class, "PrimaryKeyTableConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPrimaryKeyTableConstraint_Columns(), theColumnPackage.getIndexedColumn(), null, "columns", null, 1, 1, PrimaryKeyTableConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPrimaryKeyTableConstraint_Columns(), theColumnPackage.getIndexedColumn(), null, "columns", null, 1, -1, PrimaryKeyTableConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uniqueTableConstraintEClass, UniqueTableConstraint.class, "UniqueTableConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUniqueTableConstraint_Columns(), theColumnPackage.getIndexedColumn(), null, "columns", null, 1, 1, UniqueTableConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUniqueTableConstraint_Columns(), theColumnPackage.getIndexedColumn(), null, "columns", null, 1, -1, UniqueTableConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(checkTableConstraintEClass, CheckTableConstraint.class, "CheckTableConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCheckTableConstraint_Expression(), theExpressionPackage.getExpression(), null, "expression", null, 1, 1, CheckTableConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

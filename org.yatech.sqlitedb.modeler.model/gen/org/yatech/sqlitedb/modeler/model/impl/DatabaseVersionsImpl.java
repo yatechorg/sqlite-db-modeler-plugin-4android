@@ -3,26 +3,21 @@
 package org.yatech.sqlitedb.modeler.model.impl;
 
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.yatech.sqlitedb.modeler.model.DatabaseVersion;
 import org.yatech.sqlitedb.modeler.model.DatabaseVersions;
 import org.yatech.sqlitedb.modeler.model.ModelPackage;
+import org.yatech.sqlitedb.modeler.model.NullDatabaseVersion;
 
 /**
  * <!-- begin-user-doc -->
@@ -166,34 +161,37 @@ public class DatabaseVersionsImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public DatabaseVersion getFirstVersion() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if (versions.isEmpty()) {
+			return NullDatabaseVersion.NULL_VALUE;
+		} else {
+			return versions.get(0);
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public DatabaseVersion getLastVersion() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if (versions.isEmpty()) {
+			return NullDatabaseVersion.NULL_VALUE;
+		} else {
+			return versions.get(versions.size()-1);
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public DatabaseVersion createVersion() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		CreateDatabaseVersionCommand cmd = new CreateDatabaseVersionCommand(this);
+		return cmd.create();
 	}
 
 	/**
