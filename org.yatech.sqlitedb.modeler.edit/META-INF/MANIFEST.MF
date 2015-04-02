@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.yatech.sqlitedb.modeler.edit;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: org.yatech.sqlitedb.modeler.edit.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.edit,
+ org.yatech.sqlitedb.modeler.model
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
