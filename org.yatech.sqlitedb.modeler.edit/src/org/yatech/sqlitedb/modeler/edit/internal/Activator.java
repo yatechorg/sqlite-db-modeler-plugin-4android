@@ -1,4 +1,4 @@
-package org.yatech.sqlitedb.modeler.edit;
+package org.yatech.sqlitedb.modeler.edit.internal;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
