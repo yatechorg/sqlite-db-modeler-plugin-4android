@@ -8,9 +8,19 @@ import org.eclipse.emf.common.util.EList;
 import org.yatech.sqlitedb.modeler.model.Database;
 import org.yatech.sqlitedb.modeler.model.DatabaseVersion;
 import org.yatech.sqlitedb.modeler.model.ModelFactory;
+import org.yatech.sqlitedb.modeler.model.column.CheckColumnConstraint;
 import org.yatech.sqlitedb.modeler.model.column.Column;
+import org.yatech.sqlitedb.modeler.model.column.ColumnConstraint;
 import org.yatech.sqlitedb.modeler.model.column.ColumnFactory;
+import org.yatech.sqlitedb.modeler.model.column.DefaultExpressionValueColumnConstraint;
+import org.yatech.sqlitedb.modeler.model.column.DefaultIntegerValueColumnConstraint;
+import org.yatech.sqlitedb.modeler.model.column.DefaultRealValueColumnConstraint;
+import org.yatech.sqlitedb.modeler.model.column.DefaultStringValueColumnConstraint;
 import org.yatech.sqlitedb.modeler.model.column.IndexedColumn;
+import org.yatech.sqlitedb.modeler.model.column.NotNullColumnConstraint;
+import org.yatech.sqlitedb.modeler.model.column.PrimaryKeyColumnConstraint;
+import org.yatech.sqlitedb.modeler.model.column.UniqueColumnConstraint;
+import org.yatech.sqlitedb.modeler.model.column.util.ColumnSwitch;
 import org.yatech.sqlitedb.modeler.model.common.ColumnMapping;
 import org.yatech.sqlitedb.modeler.model.common.CommonFactory;
 import org.yatech.sqlitedb.modeler.model.common.TableMapping;
@@ -31,7 +41,8 @@ class CreateDatabaseVersionCommand {
 	private final DatabaseVersion newDatabaseVersion;
 	private final TableMapping tableMapping;
 	private final ColumnMapping columnMapping;
-	private final TableSwitch<TableConstraint> cloneTableConstraintSwitch; 
+	private final TableSwitch<TableConstraint> cloneTableConstraintSwitch;
+	private final ColumnSwitch<ColumnConstraint> cloneColumnConstraintSwitch; 
 	private boolean executed = false;
 	
 	CreateDatabaseVersionCommand(DatabaseVersionsImpl databaseVersions) {
@@ -40,6 +51,7 @@ class CreateDatabaseVersionCommand {
 		this.tableMapping = CommonFactory.eINSTANCE.createTableMapping();
 		this.columnMapping = CommonFactory.eINSTANCE.createColumnMapping();
 		this.cloneTableConstraintSwitch = createCloneTableConstraintSwitch();
+		this.cloneColumnConstraintSwitch = createCloneColumnConstraintSwitch();
 	}
 	
 	public DatabaseVersion create() {
@@ -102,17 +114,100 @@ class CreateDatabaseVersionCommand {
 
 	private void cloneColumns(Table origTable, Table newTable) {
 		for (Column origColumn : origTable.getColumns()) {
-			Column newColumn = cloneColumn(newTable, origColumn);
+			Column newColumn = cloneColumn(origColumn);
 			newColumn.setTable(newTable);
 			columnMapping.put(origColumn, newColumn);
 		}
 	}
 
-	private Column cloneColumn(Table newTable, Column origColumn) {
+	private Column cloneColumn(Column origColumn) {
 		Column newColumn = ColumnFactory.eINSTANCE.createColumn();
 		newColumn.setName(origColumn.getName());
 		newColumn.setType(origColumn.getType());
+		cloneConstraints(origColumn, newColumn);
 		return newColumn;
+	}
+
+	private void cloneConstraints(Column origColumn, Column newColumn) {
+		for (ColumnConstraint origConstraint : origColumn.getConstraints()) {
+			ColumnConstraint newConstraint = cloneConstraint(origConstraint);
+			newConstraint.setColumn(newColumn);
+		}
+	}
+
+	private ColumnConstraint cloneConstraint(ColumnConstraint origConstraint) {
+		ColumnConstraint newConstraint = cloneColumnConstraintSwitch.doSwitch(origConstraint);
+		return newConstraint;
+	}
+
+	private ColumnSwitch<ColumnConstraint> createCloneColumnConstraintSwitch() { 
+		return new ColumnSwitch<ColumnConstraint>() {
+			@Override
+			public ColumnConstraint casePrimaryKeyColumnConstraint(PrimaryKeyColumnConstraint origConstraint) {
+				PrimaryKeyColumnConstraint newConstraint = ColumnFactory.eINSTANCE.createPrimaryKeyColumnConstraint();
+				setBaseColumnConstraint(origConstraint, newConstraint);
+				return newConstraint;
+			}
+			
+			@Override
+			public ColumnConstraint caseUniqueColumnConstraint(UniqueColumnConstraint origConstraint) {
+				UniqueColumnConstraint newConstraint = ColumnFactory.eINSTANCE.createUniqueColumnConstraint();
+				setBaseColumnConstraint(origConstraint, newConstraint);
+				return newConstraint;
+			}
+			
+			@Override
+			public ColumnConstraint caseNotNullColumnConstraint(NotNullColumnConstraint origConstraint) {
+				NotNullColumnConstraint newConstraint = ColumnFactory.eINSTANCE.createNotNullColumnConstraint();
+				setBaseColumnConstraint(origConstraint, newConstraint);
+				return newConstraint;
+			}
+			
+			@Override
+			public ColumnConstraint caseCheckColumnConstraint(CheckColumnConstraint origConstraint) {
+				CheckColumnConstraint newConstraint = ColumnFactory.eINSTANCE.createCheckColumnConstraint();
+				setBaseColumnConstraint(origConstraint, newConstraint);
+				newConstraint.setExpression(cloneExpression(origConstraint.getExpression()));
+				return newConstraint;
+			}
+			
+			@Override
+			public ColumnConstraint caseDefaultExpressionValueColumnConstraint(DefaultExpressionValueColumnConstraint origConstraint) {
+				DefaultExpressionValueColumnConstraint newConstraint = ColumnFactory.eINSTANCE.createDefaultExpressionValueColumnConstraint();
+				setBaseColumnConstraint(origConstraint, newConstraint);
+				newConstraint.setValue(cloneExpression(origConstraint.getValue()));
+				return newConstraint;
+			}
+			
+			@Override
+			public ColumnConstraint caseDefaultIntegerValueColumnConstraint(DefaultIntegerValueColumnConstraint origConstraint) {
+				DefaultIntegerValueColumnConstraint newConstraint = ColumnFactory.eINSTANCE.createDefaultIntegerValueColumnConstraint();
+				setBaseColumnConstraint(origConstraint, newConstraint);
+				newConstraint.setValue(origConstraint.getValue());
+				return newConstraint;
+			}
+			
+			@Override
+			public ColumnConstraint caseDefaultRealValueColumnConstraint(DefaultRealValueColumnConstraint origConstraint) {
+				DefaultRealValueColumnConstraint newConstraint = ColumnFactory.eINSTANCE.createDefaultRealValueColumnConstraint();
+				setBaseColumnConstraint(origConstraint, newConstraint);
+				newConstraint.setValue(origConstraint.getValue());
+				return newConstraint;
+			}
+			
+			@Override
+			public ColumnConstraint caseDefaultStringValueColumnConstraint(DefaultStringValueColumnConstraint origConstraint) {
+				DefaultStringValueColumnConstraint newConstraint = ColumnFactory.eINSTANCE.createDefaultStringValueColumnConstraint();
+				setBaseColumnConstraint(origConstraint, newConstraint);
+				newConstraint.setValue(origConstraint.getValue());
+				return newConstraint;
+			}
+			
+			private void setBaseColumnConstraint(ColumnConstraint origConstraint, ColumnConstraint newConstraint) {
+				newConstraint.setName(origConstraint.getName());
+				newConstraint.setColumn(columnMapping.getCurrent(origConstraint.getColumn()));
+			}
+		};
 	}
 
 	private void cloneConstraints(Table origTable, Table newTable) {
