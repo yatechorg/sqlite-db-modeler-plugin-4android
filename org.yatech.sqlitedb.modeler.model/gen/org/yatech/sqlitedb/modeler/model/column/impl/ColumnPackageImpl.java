@@ -25,6 +25,7 @@ import org.yatech.sqlitedb.modeler.model.column.DefaultIntegerValueColumnConstra
 import org.yatech.sqlitedb.modeler.model.column.DefaultRealValueColumnConstraint;
 import org.yatech.sqlitedb.modeler.model.column.DefaultStringValueColumnConstraint;
 import org.yatech.sqlitedb.modeler.model.column.DefaultValueColumnConstraint;
+import org.yatech.sqlitedb.modeler.model.column.ForeignKeyColumnConstraint;
 import org.yatech.sqlitedb.modeler.model.column.IndexedColumn;
 import org.yatech.sqlitedb.modeler.model.column.NotNullColumnConstraint;
 import org.yatech.sqlitedb.modeler.model.column.PrimaryKeyColumnConstraint;
@@ -90,6 +91,13 @@ public class ColumnPackageImpl extends EPackageImpl implements ColumnPackage {
 	 * @generated
 	 */
 	private EClass primaryKeyColumnConstraintEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass foreignKeyColumnConstraintEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -333,6 +341,33 @@ public class ColumnPackageImpl extends EPackageImpl implements ColumnPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getForeignKeyColumnConstraint() {
+		return foreignKeyColumnConstraintEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getForeignKeyColumnConstraint_ForeignTable() {
+		return (EReference)foreignKeyColumnConstraintEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getForeignKeyColumnConstraint_ForeignColumn() {
+		return (EReference)foreignKeyColumnConstraintEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNotNullColumnConstraint() {
 		return notNullColumnConstraintEClass;
 	}
@@ -469,6 +504,10 @@ public class ColumnPackageImpl extends EPackageImpl implements ColumnPackage {
 
 		primaryKeyColumnConstraintEClass = createEClass(PRIMARY_KEY_COLUMN_CONSTRAINT);
 
+		foreignKeyColumnConstraintEClass = createEClass(FOREIGN_KEY_COLUMN_CONSTRAINT);
+		createEReference(foreignKeyColumnConstraintEClass, FOREIGN_KEY_COLUMN_CONSTRAINT__FOREIGN_TABLE);
+		createEReference(foreignKeyColumnConstraintEClass, FOREIGN_KEY_COLUMN_CONSTRAINT__FOREIGN_COLUMN);
+
 		notNullColumnConstraintEClass = createEClass(NOT_NULL_COLUMN_CONSTRAINT);
 
 		uniqueColumnConstraintEClass = createEClass(UNIQUE_COLUMN_CONSTRAINT);
@@ -527,6 +566,7 @@ public class ColumnPackageImpl extends EPackageImpl implements ColumnPackage {
 		// Add supertypes to classes
 		columnEClass.getESuperTypes().add(theCommonPackage.getNameProvider());
 		primaryKeyColumnConstraintEClass.getESuperTypes().add(this.getColumnConstraint());
+		foreignKeyColumnConstraintEClass.getESuperTypes().add(this.getColumnConstraint());
 		notNullColumnConstraintEClass.getESuperTypes().add(this.getColumnConstraint());
 		uniqueColumnConstraintEClass.getESuperTypes().add(this.getColumnConstraint());
 		checkColumnConstraintEClass.getESuperTypes().add(this.getColumnConstraint());
@@ -562,6 +602,10 @@ public class ColumnPackageImpl extends EPackageImpl implements ColumnPackage {
 		initEReference(getColumnConstraint_Column(), this.getColumn(), this.getColumn_Constraints(), "column", null, 1, 1, ColumnConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(primaryKeyColumnConstraintEClass, PrimaryKeyColumnConstraint.class, "PrimaryKeyColumnConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(foreignKeyColumnConstraintEClass, ForeignKeyColumnConstraint.class, "ForeignKeyColumnConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getForeignKeyColumnConstraint_ForeignTable(), theTablePackage.getTable(), null, "foreignTable", null, 1, 1, ForeignKeyColumnConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getForeignKeyColumnConstraint_ForeignColumn(), this.getColumn(), null, "foreignColumn", null, 1, 1, ForeignKeyColumnConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(notNullColumnConstraintEClass, NotNullColumnConstraint.class, "NotNullColumnConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

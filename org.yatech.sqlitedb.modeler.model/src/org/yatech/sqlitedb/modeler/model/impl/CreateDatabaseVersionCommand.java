@@ -16,6 +16,7 @@ import org.yatech.sqlitedb.modeler.model.column.DefaultExpressionValueColumnCons
 import org.yatech.sqlitedb.modeler.model.column.DefaultIntegerValueColumnConstraint;
 import org.yatech.sqlitedb.modeler.model.column.DefaultRealValueColumnConstraint;
 import org.yatech.sqlitedb.modeler.model.column.DefaultStringValueColumnConstraint;
+import org.yatech.sqlitedb.modeler.model.column.ForeignKeyColumnConstraint;
 import org.yatech.sqlitedb.modeler.model.column.IndexedColumn;
 import org.yatech.sqlitedb.modeler.model.column.NotNullColumnConstraint;
 import org.yatech.sqlitedb.modeler.model.column.PrimaryKeyColumnConstraint;
@@ -146,6 +147,15 @@ class CreateDatabaseVersionCommand {
 			public ColumnConstraint casePrimaryKeyColumnConstraint(PrimaryKeyColumnConstraint origConstraint) {
 				PrimaryKeyColumnConstraint newConstraint = ColumnFactory.eINSTANCE.createPrimaryKeyColumnConstraint();
 				setBaseColumnConstraint(origConstraint, newConstraint);
+				return newConstraint;
+			}
+			
+			@Override
+			public ColumnConstraint caseForeignKeyColumnConstraint(ForeignKeyColumnConstraint origConstraint) {
+				ForeignKeyColumnConstraint newConstraint = ColumnFactory.eINSTANCE.createForeignKeyColumnConstraint();
+				setBaseColumnConstraint(origConstraint, newConstraint);
+				newConstraint.setForeignTable(tableMapping.getCurrent(origConstraint.getForeignTable()));
+				newConstraint.setForeignColumn(columnMapping.getCurrent(origConstraint.getForeignColumn()));
 				return newConstraint;
 			}
 			

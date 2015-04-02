@@ -86,6 +86,10 @@ public class ColumnAdapterFactory extends AdapterFactoryImpl {
 				return createPrimaryKeyColumnConstraintAdapter();
 			}
 			@Override
+			public Adapter caseForeignKeyColumnConstraint(ForeignKeyColumnConstraint object) {
+				return createForeignKeyColumnConstraintAdapter();
+			}
+			@Override
 			public Adapter caseNotNullColumnConstraint(NotNullColumnConstraint object) {
 				return createNotNullColumnConstraintAdapter();
 			}
@@ -194,6 +198,20 @@ public class ColumnAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPrimaryKeyColumnConstraintAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.yatech.sqlitedb.modeler.model.column.ForeignKeyColumnConstraint <em>Foreign Key Column Constraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.yatech.sqlitedb.modeler.model.column.ForeignKeyColumnConstraint
+	 * @generated
+	 */
+	public Adapter createForeignKeyColumnConstraintAdapter() {
 		return null;
 	}
 

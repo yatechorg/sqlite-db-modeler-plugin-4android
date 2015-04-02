@@ -253,6 +253,70 @@ public interface ColumnPackage extends EPackage {
 	int PRIMARY_KEY_COLUMN_CONSTRAINT_OPERATION_COUNT = COLUMN_CONSTRAINT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.yatech.sqlitedb.modeler.model.column.impl.ForeignKeyColumnConstraintImpl <em>Foreign Key Column Constraint</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.yatech.sqlitedb.modeler.model.column.impl.ForeignKeyColumnConstraintImpl
+	 * @see org.yatech.sqlitedb.modeler.model.column.impl.ColumnPackageImpl#getForeignKeyColumnConstraint()
+	 * @generated
+	 */
+	int FOREIGN_KEY_COLUMN_CONSTRAINT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOREIGN_KEY_COLUMN_CONSTRAINT__NAME = COLUMN_CONSTRAINT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Column</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOREIGN_KEY_COLUMN_CONSTRAINT__COLUMN = COLUMN_CONSTRAINT__COLUMN;
+
+	/**
+	 * The feature id for the '<em><b>Foreign Table</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOREIGN_KEY_COLUMN_CONSTRAINT__FOREIGN_TABLE = COLUMN_CONSTRAINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Foreign Column</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOREIGN_KEY_COLUMN_CONSTRAINT__FOREIGN_COLUMN = COLUMN_CONSTRAINT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Foreign Key Column Constraint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOREIGN_KEY_COLUMN_CONSTRAINT_FEATURE_COUNT = COLUMN_CONSTRAINT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Foreign Key Column Constraint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOREIGN_KEY_COLUMN_CONSTRAINT_OPERATION_COUNT = COLUMN_CONSTRAINT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.yatech.sqlitedb.modeler.model.column.impl.NotNullColumnConstraintImpl <em>Not Null Column Constraint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -260,7 +324,7 @@ public interface ColumnPackage extends EPackage {
 	 * @see org.yatech.sqlitedb.modeler.model.column.impl.ColumnPackageImpl#getNotNullColumnConstraint()
 	 * @generated
 	 */
-	int NOT_NULL_COLUMN_CONSTRAINT = 4;
+	int NOT_NULL_COLUMN_CONSTRAINT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -306,7 +370,7 @@ public interface ColumnPackage extends EPackage {
 	 * @see org.yatech.sqlitedb.modeler.model.column.impl.ColumnPackageImpl#getUniqueColumnConstraint()
 	 * @generated
 	 */
-	int UNIQUE_COLUMN_CONSTRAINT = 5;
+	int UNIQUE_COLUMN_CONSTRAINT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -352,7 +416,7 @@ public interface ColumnPackage extends EPackage {
 	 * @see org.yatech.sqlitedb.modeler.model.column.impl.ColumnPackageImpl#getCheckColumnConstraint()
 	 * @generated
 	 */
-	int CHECK_COLUMN_CONSTRAINT = 6;
+	int CHECK_COLUMN_CONSTRAINT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -407,7 +471,7 @@ public interface ColumnPackage extends EPackage {
 	 * @see org.yatech.sqlitedb.modeler.model.column.impl.ColumnPackageImpl#getDefaultValueColumnConstraint()
 	 * @generated
 	 */
-	int DEFAULT_VALUE_COLUMN_CONSTRAINT = 7;
+	int DEFAULT_VALUE_COLUMN_CONSTRAINT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -462,7 +526,7 @@ public interface ColumnPackage extends EPackage {
 	 * @see org.yatech.sqlitedb.modeler.model.column.impl.ColumnPackageImpl#getDefaultExpressionValueColumnConstraint()
 	 * @generated
 	 */
-	int DEFAULT_EXPRESSION_VALUE_COLUMN_CONSTRAINT = 8;
+	int DEFAULT_EXPRESSION_VALUE_COLUMN_CONSTRAINT = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -517,7 +581,7 @@ public interface ColumnPackage extends EPackage {
 	 * @see org.yatech.sqlitedb.modeler.model.column.impl.ColumnPackageImpl#getDefaultStringValueColumnConstraint()
 	 * @generated
 	 */
-	int DEFAULT_STRING_VALUE_COLUMN_CONSTRAINT = 9;
+	int DEFAULT_STRING_VALUE_COLUMN_CONSTRAINT = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -572,7 +636,7 @@ public interface ColumnPackage extends EPackage {
 	 * @see org.yatech.sqlitedb.modeler.model.column.impl.ColumnPackageImpl#getDefaultIntegerValueColumnConstraint()
 	 * @generated
 	 */
-	int DEFAULT_INTEGER_VALUE_COLUMN_CONSTRAINT = 10;
+	int DEFAULT_INTEGER_VALUE_COLUMN_CONSTRAINT = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -627,7 +691,7 @@ public interface ColumnPackage extends EPackage {
 	 * @see org.yatech.sqlitedb.modeler.model.column.impl.ColumnPackageImpl#getDefaultRealValueColumnConstraint()
 	 * @generated
 	 */
-	int DEFAULT_REAL_VALUE_COLUMN_CONSTRAINT = 11;
+	int DEFAULT_REAL_VALUE_COLUMN_CONSTRAINT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -682,7 +746,7 @@ public interface ColumnPackage extends EPackage {
 	 * @see org.yatech.sqlitedb.modeler.model.column.impl.ColumnPackageImpl#getDataType()
 	 * @generated
 	 */
-	int DATA_TYPE = 12;
+	int DATA_TYPE = 13;
 
 
 	/**
@@ -790,6 +854,38 @@ public interface ColumnPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPrimaryKeyColumnConstraint();
+
+	/**
+	 * Returns the meta object for class '{@link org.yatech.sqlitedb.modeler.model.column.ForeignKeyColumnConstraint <em>Foreign Key Column Constraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Foreign Key Column Constraint</em>'.
+	 * @see org.yatech.sqlitedb.modeler.model.column.ForeignKeyColumnConstraint
+	 * @generated
+	 */
+	EClass getForeignKeyColumnConstraint();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.yatech.sqlitedb.modeler.model.column.ForeignKeyColumnConstraint#getForeignTable <em>Foreign Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Foreign Table</em>'.
+	 * @see org.yatech.sqlitedb.modeler.model.column.ForeignKeyColumnConstraint#getForeignTable()
+	 * @see #getForeignKeyColumnConstraint()
+	 * @generated
+	 */
+	EReference getForeignKeyColumnConstraint_ForeignTable();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.yatech.sqlitedb.modeler.model.column.ForeignKeyColumnConstraint#getForeignColumn <em>Foreign Column</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Foreign Column</em>'.
+	 * @see org.yatech.sqlitedb.modeler.model.column.ForeignKeyColumnConstraint#getForeignColumn()
+	 * @see #getForeignKeyColumnConstraint()
+	 * @generated
+	 */
+	EReference getForeignKeyColumnConstraint_ForeignColumn();
 
 	/**
 	 * Returns the meta object for class '{@link org.yatech.sqlitedb.modeler.model.column.NotNullColumnConstraint <em>Not Null Column Constraint</em>}'.
@@ -1013,6 +1109,32 @@ public interface ColumnPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PRIMARY_KEY_COLUMN_CONSTRAINT = eINSTANCE.getPrimaryKeyColumnConstraint();
+
+		/**
+		 * The meta object literal for the '{@link org.yatech.sqlitedb.modeler.model.column.impl.ForeignKeyColumnConstraintImpl <em>Foreign Key Column Constraint</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.yatech.sqlitedb.modeler.model.column.impl.ForeignKeyColumnConstraintImpl
+		 * @see org.yatech.sqlitedb.modeler.model.column.impl.ColumnPackageImpl#getForeignKeyColumnConstraint()
+		 * @generated
+		 */
+		EClass FOREIGN_KEY_COLUMN_CONSTRAINT = eINSTANCE.getForeignKeyColumnConstraint();
+
+		/**
+		 * The meta object literal for the '<em><b>Foreign Table</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FOREIGN_KEY_COLUMN_CONSTRAINT__FOREIGN_TABLE = eINSTANCE.getForeignKeyColumnConstraint_ForeignTable();
+
+		/**
+		 * The meta object literal for the '<em><b>Foreign Column</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FOREIGN_KEY_COLUMN_CONSTRAINT__FOREIGN_COLUMN = eINSTANCE.getForeignKeyColumnConstraint_ForeignColumn();
 
 		/**
 		 * The meta object literal for the '{@link org.yatech.sqlitedb.modeler.model.column.impl.NotNullColumnConstraintImpl <em>Not Null Column Constraint</em>}' class.

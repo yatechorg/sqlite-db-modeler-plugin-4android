@@ -49,6 +49,15 @@ public interface ColumnFactory extends EFactory {
 	PrimaryKeyColumnConstraint createPrimaryKeyColumnConstraint();
 
 	/**
+	 * Returns a new object of class '<em>Foreign Key Column Constraint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Foreign Key Column Constraint</em>'.
+	 * @generated
+	 */
+	ForeignKeyColumnConstraint createForeignKeyColumnConstraint();
+
+	/**
 	 * Returns a new object of class '<em>Not Null Column Constraint</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

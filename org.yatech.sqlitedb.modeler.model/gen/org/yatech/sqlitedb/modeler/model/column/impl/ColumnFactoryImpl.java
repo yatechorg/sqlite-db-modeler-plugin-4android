@@ -60,6 +60,7 @@ public class ColumnFactoryImpl extends EFactoryImpl implements ColumnFactory {
 			case ColumnPackage.COLUMN: return createColumn();
 			case ColumnPackage.INDEXED_COLUMN: return createIndexedColumn();
 			case ColumnPackage.PRIMARY_KEY_COLUMN_CONSTRAINT: return createPrimaryKeyColumnConstraint();
+			case ColumnPackage.FOREIGN_KEY_COLUMN_CONSTRAINT: return createForeignKeyColumnConstraint();
 			case ColumnPackage.NOT_NULL_COLUMN_CONSTRAINT: return createNotNullColumnConstraint();
 			case ColumnPackage.UNIQUE_COLUMN_CONSTRAINT: return createUniqueColumnConstraint();
 			case ColumnPackage.CHECK_COLUMN_CONSTRAINT: return createCheckColumnConstraint();
@@ -130,6 +131,16 @@ public class ColumnFactoryImpl extends EFactoryImpl implements ColumnFactory {
 	public PrimaryKeyColumnConstraint createPrimaryKeyColumnConstraint() {
 		PrimaryKeyColumnConstraintImpl primaryKeyColumnConstraint = new PrimaryKeyColumnConstraintImpl();
 		return primaryKeyColumnConstraint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ForeignKeyColumnConstraint createForeignKeyColumnConstraint() {
+		ForeignKeyColumnConstraintImpl foreignKeyColumnConstraint = new ForeignKeyColumnConstraintImpl();
+		return foreignKeyColumnConstraint;
 	}
 
 	/**

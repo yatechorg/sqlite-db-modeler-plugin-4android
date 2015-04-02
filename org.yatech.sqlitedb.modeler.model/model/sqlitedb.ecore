@@ -286,6 +286,12 @@
           eType="#//column/Column" eOpposite="#//column/Column/constraints"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PrimaryKeyColumnConstraint" eSuperTypes="#//column/ColumnConstraint"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ForeignKeyColumnConstraint" eSuperTypes="#//column/ColumnConstraint">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="foreignTable" lowerBound="1"
+          eType="#//table/Table"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="foreignColumn" lowerBound="1"
+          eType="#//column/Column"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NotNullColumnConstraint" eSuperTypes="#//column/ColumnConstraint"/>
     <eClassifiers xsi:type="ecore:EClass" name="UniqueColumnConstraint" eSuperTypes="#//column/ColumnConstraint"/>
     <eClassifiers xsi:type="ecore:EClass" name="CheckColumnConstraint" eSuperTypes="#//column/ColumnConstraint">

@@ -94,6 +94,13 @@ public class ColumnSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ColumnPackage.FOREIGN_KEY_COLUMN_CONSTRAINT: {
+				ForeignKeyColumnConstraint foreignKeyColumnConstraint = (ForeignKeyColumnConstraint)theEObject;
+				T1 result = caseForeignKeyColumnConstraint(foreignKeyColumnConstraint);
+				if (result == null) result = caseColumnConstraint(foreignKeyColumnConstraint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ColumnPackage.NOT_NULL_COLUMN_CONSTRAINT: {
 				NotNullColumnConstraint notNullColumnConstraint = (NotNullColumnConstraint)theEObject;
 				T1 result = caseNotNullColumnConstraint(notNullColumnConstraint);
@@ -215,6 +222,21 @@ public class ColumnSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 casePrimaryKeyColumnConstraint(PrimaryKeyColumnConstraint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Foreign Key Column Constraint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Foreign Key Column Constraint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseForeignKeyColumnConstraint(ForeignKeyColumnConstraint object) {
 		return null;
 	}
 
