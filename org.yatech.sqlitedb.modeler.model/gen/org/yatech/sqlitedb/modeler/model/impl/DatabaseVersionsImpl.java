@@ -161,7 +161,7 @@ public class DatabaseVersionsImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public DatabaseVersion getFirstVersion() {
 		if (versions.isEmpty()) {
@@ -174,7 +174,7 @@ public class DatabaseVersionsImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public DatabaseVersion getLastVersion() {
 		if (versions.isEmpty()) {
@@ -187,7 +187,7 @@ public class DatabaseVersionsImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public DatabaseVersion createVersion() {
 		CreateDatabaseVersionCommand cmd = new CreateDatabaseVersionCommand(this);

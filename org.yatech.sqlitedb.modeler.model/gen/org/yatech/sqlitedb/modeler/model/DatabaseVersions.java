@@ -97,6 +97,7 @@ public interface DatabaseVersions extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='if (versions.isEmpty()) {\r\n\treturn NullDatabaseVersion.NULL_VALUE;\r\n} else {\r\n\treturn versions.get(0);\r\n}'"
 	 * @generated
 	 */
 	DatabaseVersion getFirstVersion();
@@ -105,6 +106,7 @@ public interface DatabaseVersions extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='if (versions.isEmpty()) {\r\n\treturn NullDatabaseVersion.NULL_VALUE;\r\n} else {\r\n\treturn versions.get(versions.size()-1);\r\n}'"
 	 * @generated
 	 */
 	DatabaseVersion getLastVersion();
@@ -113,6 +115,7 @@ public interface DatabaseVersions extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='CreateDatabaseVersionCommand cmd = new CreateDatabaseVersionCommand(this);\r\nreturn cmd.create();'"
 	 * @generated
 	 */
 	DatabaseVersion createVersion();

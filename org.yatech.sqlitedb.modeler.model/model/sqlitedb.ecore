@@ -2,9 +2,21 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model" nsURI="http://yatech.org/sqlitedb/modeler/model" nsPrefix="org.yatech.sqlitedb.modeler">
   <eClassifiers xsi:type="ecore:EClass" name="DatabaseVersions">
-    <eOperations name="getFirstVersion" lowerBound="1" eType="#//DatabaseVersion"/>
-    <eOperations name="getLastVersion" lowerBound="1" eType="#//DatabaseVersion"/>
-    <eOperations name="createVersion" lowerBound="1" eType="#//DatabaseVersion"/>
+    <eOperations name="getFirstVersion" lowerBound="1" eType="#//DatabaseVersion">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (versions.isEmpty()) {&#xD;&#xA;&#x9;return NullDatabaseVersion.NULL_VALUE;&#xD;&#xA;} else {&#xD;&#xA;&#x9;return versions.get(0);&#xD;&#xA;}"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getLastVersion" lowerBound="1" eType="#//DatabaseVersion">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (versions.isEmpty()) {&#xD;&#xA;&#x9;return NullDatabaseVersion.NULL_VALUE;&#xD;&#xA;} else {&#xD;&#xA;&#x9;return versions.get(versions.size()-1);&#xD;&#xA;}"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="createVersion" lowerBound="1" eType="#//DatabaseVersion">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="CreateDatabaseVersionCommand cmd = new CreateDatabaseVersionCommand(this);&#xD;&#xA;return cmd.create();"/>
+      </eAnnotations>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="versions" lowerBound="1"
         upperBound="-1" eType="#//DatabaseVersion" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="packageName" lowerBound="1"
